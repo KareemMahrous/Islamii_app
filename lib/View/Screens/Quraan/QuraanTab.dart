@@ -28,7 +28,7 @@ class QuraanTab extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Text(
+            const Text(
               "Ayat",
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
@@ -37,7 +37,7 @@ class QuraanTab extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.05,
               color: constants.btmnav,
             ),
-            Text(
+            const Text(
               "Name",
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
@@ -53,7 +53,7 @@ class QuraanTab extends StatelessWidget {
           child: ListView.separated(
             itemCount: SuraNames.length,
             itemBuilder: (buildContext, index) {
-              return SuraNameWidget(SuraNames[index],index);
+              return SuraNameWidget(SuraNames[index], index);
             },
             separatorBuilder: (BuildContext context, int index) {
               return Container(

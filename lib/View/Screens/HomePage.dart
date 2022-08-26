@@ -1,7 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:islami/consts.dart';
-import 'AhadethTab.dart';
+import 'Ahadeth/AhadethTab.dart';
 import 'Quraan/QuraanTab.dart';
 import 'RadioTab.dart';
 import 'SebhaTab.dart';
