@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami/consts.dart';
 
 import '../../Model/SuraDetailsArgs.dart';
 import '../Screens/Quraan/SuraDetailsScreen.dart';
@@ -18,13 +19,18 @@ class SuraNameWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Text(
+           const Text(
             "100",
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
+          Container(
+            width: 2,
+            height: MediaQuery.of(context).size.height * 0.05,
+            color: constants.btmnav,
+          ),
           Text(
             SuraName,
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
         ],
       ),

@@ -29,7 +29,7 @@ class QuraanTab extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(
-              "Name",
+              "Ayat",
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             Container(
@@ -38,7 +38,7 @@ class QuraanTab extends StatelessWidget {
               color: constants.btmnav,
             ),
             Text(
-              "Ayat",
+              "Name",
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
           ],
