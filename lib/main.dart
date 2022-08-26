@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:islami/View/Screens/HomePage.dart';
 
+import 'View/Screens/Quraan/SuraDetailsScreen.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -15,9 +17,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       routes: {
-        HomePage.routeName:(BuildContext)=>HomePage()
+        HomePage.routeName: (BuildContext) => HomePage(),
+        SuraDetailsScreen.routeName: (BuildContext) => SuraDetailsScreen()
       },
       initialRoute: HomePage.routeName,
-          );
+    );
   }
 }
