@@ -4,6 +4,7 @@ class AppConfigProvider extends ChangeNotifier{
 
   String appLanguage = 'en';
   ThemeMode apptheme = ThemeMode.light;
+
   bool isLightMode(){
     return apptheme==ThemeMode.light;
   }

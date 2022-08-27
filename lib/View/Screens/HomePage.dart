@@ -5,7 +5,6 @@ import 'package:islami/View/Screens/Settings/SettingsTab.dart';
 import 'package:islami/consts.dart';
 import 'Ahadeth/AhadethTab.dart';
 import 'Quraan/QuraanTab.dart';
-import 'RadioTab.dart';
 import 'SebhaTab.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -72,10 +71,10 @@ class _HomePageState extends State<HomePage> {
                 icon: Icon(Icons.menu_book_sharp, size: 50),
                 label: AppLocalizations.of(context)!.ahadeth,
               ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.radio, size: 50),
-                label: AppLocalizations.of(context)!.radio,
-              ),
+              // BottomNavigationBarItem(
+              //   icon: Icon(Icons.radio, size: 50),
+              //   label: AppLocalizations.of(context)!.radio,
+              // ),
               BottomNavigationBarItem(
                 icon: ImageIcon(
                   AssetImage("assets/images/sebha_blue.png"),
@@ -98,7 +97,7 @@ class _HomePageState extends State<HomePage> {
   List<Widget> tabs = [
     QuraanTab(),
     AhadethTab(),
-    RadioTab(),
+    // RadioTab(),
     SebhaTab(),
     SettingsTab(),
   ];

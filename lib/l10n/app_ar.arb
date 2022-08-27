@@ -7,5 +7,7 @@
   "settings": "الاعدادات",
   "suraname": "اسم السورة",
   "language": "اللغة",
-  "theme": "التطبيق"
+  "theme": "التطبيق",
+  "sebha_counter": "عداد السبحة",
+  "reset": "اعادة"
 }

@@ -7,5 +7,7 @@
   "settings": "Settings",
   "suraname": "Sura Name",
   "language": "Language",
-  "theme": "Theme"
+  "theme": "Theme",
+  "sebha_counter": "Sebha Counter",
+  "reset": "Reset"
 }
