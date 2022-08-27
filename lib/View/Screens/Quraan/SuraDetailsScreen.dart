@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:islami/Provider/AppConfigProvider.dart';
 import 'package:islami/consts.dart';
+import 'package:provider/provider.dart';
 import '../../../Model/SuraDetailsArgs.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
@@ -17,11 +19,14 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
   Widget build(BuildContext context) {
     //receiving from Model data from SuraDetailsArgs.dart
     var args = ModalRoute.of(context)?.settings.arguments as SuraDetailsArgs;
+    var provider = Provider.of<AppConfigProvider>(context);
 
     LoadSuraDetails(args.suraIndex);
     return Stack(children: [
       Image.asset(
-        "assets/images/bg3.png",
+        provider.isLightMode()
+            ? "assets/images/bg3.png"
+            : "assets/images/bgdarj.png",
         fit: BoxFit.fill,
         width: double.infinity,
         height: double.infinity,
@@ -43,11 +48,12 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
         body: Container(
           margin: const EdgeInsets.symmetric(vertical: 40.0, horizontal: 20.0),
           decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(12)),
+              color: provider.isLightMode() ? Colors.white : constants.btmnavdark,
+              borderRadius: BorderRadius.circular(12)),
           child: Showayat.isEmpty
               ? Center(
                   child: CircularProgressIndicator(
-                    color: constants.btmnav,
+                    color: constants.btmnavlight,
                     backgroundColor: Colors.transparent,
                   ),
                 )
@@ -57,9 +63,13 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
                     return Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: Text(
-                        Showayat[index]+"(${index+1})",
-                        style: const TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
+                        Showayat[index] + "(${index + 1})",
+                        style: TextStyle(
+                            color: provider.isLightMode()
+                                ? Colors.black
+                                : constants.unselectedicondark,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold),
                         textAlign: TextAlign.center,
                         textDirection: TextDirection.rtl,
                       ),
@@ -68,7 +78,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
                   separatorBuilder: (BuildContext context, int index) {
                     return Container(
                       height: 1,
-                      color: constants.btmnav,
+                      color: constants.btmnavlight,
                       width: double.infinity,
                     );
                   },

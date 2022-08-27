@@ -1,8 +1,11 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:islami/consts.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
 import '../../../Model/suranames.dart';
+import '../../../Provider/AppConfigProvider.dart';
 import '../../Widget/SuraNameWidget.dart';
 
 class QuraanTab extends StatelessWidget {
@@ -10,42 +13,33 @@ class QuraanTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppConfigProvider>(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Expanded(
           flex: 1,
           child: Image.asset(
-            "assets/images/bgquran.png",
+           "assets/images/bgquran.png",
             height: MediaQuery.of(context).size.height * 0.3,
           ),
         ),
         Container(
           height: 2,
-          color: constants.btmnav,
+          color: constants.btmnavlight,
           width: double.infinity,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            const Text(
-              "Ayat",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            Container(
-              width: 2,
-              height: MediaQuery.of(context).size.height * 0.05,
-              color: constants.btmnav,
-            ),
-            const Text(
-              "Name",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-          ],
+        Text(
+          AppLocalizations.of(context)!.suraname,
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            color: provider.isLightMode() ? Colors.black : Colors.white,
+          ),
         ),
         Container(
           height: 2,
-          color: constants.btmnav,
+          color: constants.btmnavlight,
           width: double.infinity,
         ),
         Expanded(
@@ -58,7 +52,7 @@ class QuraanTab extends StatelessWidget {
             separatorBuilder: (BuildContext context, int index) {
               return Container(
                 height: 1,
-                color: constants.btmnav,
+                color: constants.btmnavlight,
                 width: double.infinity,
               );
             },

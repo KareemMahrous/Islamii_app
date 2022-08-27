@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami/Model/Hadeth.dart';
+import 'package:islami/Provider/AppConfigProvider.dart';
 import 'package:islami/consts.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 import '../../Widget/AhadethWidget.dart';
 
 class AhadethTab extends StatefulWidget {
@@ -12,8 +14,10 @@ class AhadethTab extends StatefulWidget {
 
 class _AhadethTabState extends State<AhadethTab> {
   List<Hadeth> allAhadeth = [];
+
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppConfigProvider>(context);
     if (allAhadeth.isEmpty) LoadHadethData();
     return Column(children: [
       Expanded(
@@ -23,12 +27,30 @@ class _AhadethTabState extends State<AhadethTab> {
           height: MediaQuery.of(context).size.height * 0.3,
         ),
       ),
+      Container(
+        height: 2,
+        color: constants.btmnavlight,
+        width: double.infinity,
+      ),
+      Text(
+        AppLocalizations.of(context)!.ahadeth,
+        style: TextStyle(
+          fontSize: 24,
+          fontWeight: FontWeight.bold,
+          color: provider.isLightMode() ? Colors.black : Colors.white,
+        ),
+      ),
+      Container(
+        height: 2,
+        color: constants.btmnavlight,
+        width: double.infinity,
+      ),
       Expanded(
         flex: 3,
         child: allAhadeth.isEmpty
             ? Center(
                 child: CircularProgressIndicator(
-                  color: constants.btmnav,
+                  color: constants.btmnavlight,
                   backgroundColor: Colors.transparent,
                 ),
               )
@@ -36,7 +58,7 @@ class _AhadethTabState extends State<AhadethTab> {
                 separatorBuilder: (BuildContext context, int index) {
                   return Container(
                     height: 1,
-                    color: constants.btmnav,
+                    color: constants.btmnavlight,
                     width: double.infinity,
                   );
                 },
@@ -48,8 +70,6 @@ class _AhadethTabState extends State<AhadethTab> {
       )
     ]);
   }
-
-
 
   void LoadHadethData() async {
     for (int i = 1; i <= 50; i++) {
